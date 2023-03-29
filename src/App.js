@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
+import { Global } from '@emotion/react';
+import  Todo  from './pages/Todo/Todo'
+import MainAside from './components/Aside/MainAside/MainAside'
+import { reset } from './styles/Global/reset';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Global style={reset}/>
+        <MainAside />
+        <Routes>
+          <Route path="/todo" Component={Todo}/>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
 export default App;
+
